@@ -2,11 +2,11 @@
 
 <package schemaVersion="1.7.7" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.7/schema/PACK.xsd">
   <vendor>ACME</vendor>
-  <name>ACME_Pack</name>
-  <description>This is a simple pack to describe SW components from ACME Corp.</description>
-  <url>https://www.keil.com/pack/</url>
+  <name>ACME_Middleware</name>
+  <description>This is a simple pack to describe SW middleware components from ACME Corp.</description>
+  <url>https://www.acme-website.com/pack/</url>
   <repository type="git">https://github.com/Open-CMSIS-Pack/SW-Pack-HandsOn.git</repository>
-  <supportContact>no-reply@acme-corp.com</supportContact>
+  <supportContact>support@acme-corp.com</supportContact>
   <license>LICENSE</license>
   
   <releases>
@@ -54,9 +54,9 @@
   
   <!-- component section (optional for all Software Packs)-->
     <components>
-      <bundle Cbundle="Eval" Cclass="ACME" Cversion="1.0.3">
+      <bundle Cbundle="Eval" Cclass="ACME-Feature" Cversion="1.0.3">
         <description>Evaluation version of ACME Corp's SW component</description>
-        <doc>Docs/MySWComp.htm</doc>
+        <doc>https://www.acme-website.com/ACME-Feature/Eval</doc>
       <component Cgroup="MyGroup" Cvariant="Release" Cversion="1.0.3" condition="CMSIS Core with RTOS2" maxInstances="3">
         <description>Release version of MyVariant</description>
         <RTE_Components_h>
@@ -88,7 +88,7 @@
         </files>
       </component>
     </bundle>
-    <bundle Cbundle="Commercial" Cclass="ACME" Cversion="1.0.2">
+    <bundle Cbundle="Commercial" Cclass="ACME-Feature" Cversion="1.0.2">
       <description>Commercial version of ACME Corp's SW component</description>
       <doc>Docs/MySWComp.htm</doc>
     <component Cgroup="MyGroup" Cvariant="Release" Cversion="1.0.2" condition="CMSIS Core with RTOS2" maxInstances="3">
@@ -124,7 +124,7 @@
   
   <!-- optional taxonomy section for defining new component Class and Group names -->
   <taxonomy>
-    <description Cclass="ACME" doc="Docs/MySWCompTaxonomy.htm">ACME Corporation's SW component taxonomy.</description>
+    <description Cclass="ACME-Feature" doc="Docs/MySWCompTaxonomy.htm">ACME Middelware Feature.</description>
   </taxonomy>
   
 </package>
