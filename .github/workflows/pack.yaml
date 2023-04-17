@@ -1,4 +1,4 @@
-name: Build documentation and pack
+name: Build pack
 on:
   workflow_dispatch:
   push:
