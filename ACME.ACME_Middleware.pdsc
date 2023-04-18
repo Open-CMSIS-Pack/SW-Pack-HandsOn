@@ -4,7 +4,7 @@
   xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.7/schema/PACK.xsd">
   <vendor>ACME</vendor>
   <name>ACME_Middleware</name>
-  <description>ACME middleware components</descriptixon>
+  <description>ACME middleware components</description>
   <url>https://www.acme-website.com/pack/</url>
   <repository type="git">https://github.com/Open-CMSIS-Pack/SW-Pack-HandsOn.git</repository>
   <supportContact>support@acme-corp.com</supportContact>
