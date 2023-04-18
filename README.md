@@ -30,21 +30,29 @@ Content                        | Description
    > csolution list packs
    ```
 
-For changing the XML it is recommended to use VS Code. After modifications to the `*.pdsc` file run using **Command Prompt**:
+For changing the XML it is recommended to use VS Code. 
+
+After modifications to the `*.pdsc` file run packchk and include all packs that are required in the validation:
+
+Using **Command Prompt**:
 
 ```txt
 > packchk ACME.ACME_Middleware.pdsc -i %LocalAppData%/Arm/Packs/ARM/CMSIS/5.9.0/ARM.CMSIS.pdsc
 ```
 
-> NOTE: For other shell environments replace `%LocalAppData%` with the path to the local user application data. 
+Using  **Git Bash** console:
+
+```txt
+> packchk ACME.ACME_Middleware.pdsc -i $CMSIS_PACK_ROOT/ARM/CMSIS/5.9.0/ARM.CMSIS.pdsc
+```
 
 With CMSIS-Toolbox v1.7.0 the XML schema check is available with packchk, the command may be then extended to:
 
 ```txt
-> packchk ACME.ACME_Middleware.pdsc -i %LocalAppData%/Arm/Packs/ARM/CMSIS/5.9.0/ARM.CMSIS.pdsc -s /Keil_v5/UV4/PACK.xsd
+> packchk ACME.ACME_Middleware.pdsc -i $CMSIS_PACK_ROOT/ARM/CMSIS/5.9.0/ARM.CMSIS.pdsc -s /c/Keil_v5/UV4/PACK.xsd
 ```
 
-The pack can be created locally in the directory `output` using a **Git Bash** console:
+The pack can be created locally in the directory `output` using **Git Bash**:
 
 ```txt
 $ ./gen_pack.sh -v
