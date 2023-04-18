@@ -25,9 +25,9 @@ Content                        | Description
 2. Register this pack with `cpackget` via [PDSC file](https://github.com/Open-CMSIS-Pack/cpackget/blob/main/README.md#adding-packs) these commands:
 
    ```txt
-   > cpackget update-index                    // optional to ensure that pack index is up-to-date
-   > cpackget add ACME.ACME_Middleware.pdsc   // pack now appears in toolchains, i.e. in MDK
-   > csolution list packs
+   cpackget update-index                    // optional to ensure that pack index is up-to-date
+   cpackget add ACME.ACME_Middleware.pdsc   // pack now appears in toolchains, i.e. in MDK
+   csolution list packs
    ```
 
 For changing the XML it is recommended to use VS Code. 
