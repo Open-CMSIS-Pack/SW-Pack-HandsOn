@@ -6,4 +6,4 @@ contains bundles for an *evaluation* and a *commercial* version of a software co
 
 In the repository, you will find a `gen_pack.sh` script that is used to build the pack. 
 
-A workflow to build the pack on GitHub is available in `.github/workflows/pack.yaml`.
+A workflow to build the pack on GitHub is available in [`.github/workflows/pack.yaml`](./.github/workflows/pack.yaml)
