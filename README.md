@@ -37,25 +37,25 @@ After modifications to the `*.pdsc` file run packchk and include all packs that 
 Using **Command Prompt**:
 
 ```txt
-> packchk ACME.ACME_Middleware.pdsc -i %CMSIS_PACK_ROOT%/ARM/CMSIS/5.9.0/ARM.CMSIS.pdsc
+packchk ACME.ACME_Middleware.pdsc -i %CMSIS_PACK_ROOT%/ARM/CMSIS/5.9.0/ARM.CMSIS.pdsc
 ```
 
 Using  **Git Bash** console:
 
 ```txt
-> packchk ACME.ACME_Middleware.pdsc -i $CMSIS_PACK_ROOT/ARM/CMSIS/5.9.0/ARM.CMSIS.pdsc
+packchk ACME.ACME_Middleware.pdsc -i $CMSIS_PACK_ROOT/ARM/CMSIS/5.9.0/ARM.CMSIS.pdsc
 ```
 
 With CMSIS-Toolbox v1.7.0 the XML schema check is available with packchk, the command may be then extended to:
 
 ```txt
-> packchk ACME.ACME_Middleware.pdsc -i $CMSIS_PACK_ROOT/ARM/CMSIS/5.9.0/ARM.CMSIS.pdsc -s /c/Keil_v5/UV4/PACK.xsd
+packchk ACME.ACME_Middleware.pdsc -i $CMSIS_PACK_ROOT/ARM/CMSIS/5.9.0/ARM.CMSIS.pdsc -s /c/Keil_v5/UV4/PACK.xsd
 ```
 
 The pack can be created locally in the directory `output` using **Git Bash**:
 
 ```txt
-$ ./gen_pack.sh -v
+./gen_pack.sh -v
 ```
 
 ### Pack Creation on GitHub
