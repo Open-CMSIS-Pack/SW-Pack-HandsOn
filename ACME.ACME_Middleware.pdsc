@@ -4,7 +4,7 @@
   xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.7/schema/PACK.xsd">
   <vendor>ACME</vendor>
   <name>ACME_Middleware</name>
-  <description>This is a simple pack to describe SW middleware components from ACME Corp.</description>
+  <description>ACME middleware components</description>
   <url>https://www.acme-website.com/pack/</url>
   <repository type="git">https://github.com/Open-CMSIS-Pack/SW-Pack-HandsOn.git</repository>
   <supportContact>support@acme-corp.com</supportContact>
@@ -23,73 +23,81 @@
 
   <!-- conditions section (optional for all Software Packs)-->
   <conditions>
-    <condition id="Arm Compiler">
-      <require Tcompiler="ARMCC" Toptions="AC6" />
+    <condition id="Tested with Compiler">
+      <accept Tcompiler="ARMCC" Toptions="AC6" />
+      <accept Tcompiler="GCC" />
+      <accept Tcompiler="IAR" />
     </condition>
-    <condition id="CM0">
-      <description>Cortex-M0 based device</description>
-      <require condition="Arm Compiler" />
+    <condition id="CM0-23">
+      <description>Cortex-M0/M23 based device</description>
+      <require condition="Tested with Compiler" />
       <accept Dcore="Cortex-M0" />
       <accept Dcore="Cortex-M0+" />
+      <accept Dcore="Cortex-M23" />
     </condition>
     <condition id="CM3">
       <description>Cortex-M3 based device</description>
-      <require condition="Arm Compiler" />
       <accept Dcore="Cortex-M3" />
     </condition>
-    <condition id="CM4_CM7">
-      <description>Cortex-M4 based device</description>
-      <require condition="Arm Compiler" />
+    <condition id="CM4-85">
+      <description>SIMD based device</description>
+      <require condition="Tested with Compiler" />
       <accept Dcore="Cortex-M4" />
       <accept Dcore="Cortex-M7" />
+      <accept Dcore="Cortex-M33" />
+      <accept Dcore="Cortex-M55" />
+      <accept Dcore="Cortex-M85" />
     </condition>
     <condition id="CMSIS Core with RTOS2">
       <description>CMSIS Core with RTOS2 for Cortex-M processor</description>
-      <accept condition="CM0" />
+      <require condition="Tested with Compiler" />
+      <accept condition="CM0-23" />
       <accept condition="CM3" />
-      <accept condition="CM4_CM7" />
+      <accept condition="CM4-85" />
       <require Cclass="CMSIS" Cgroup="CORE" />
       <require Cclass="CMSIS" Cgroup="RTOS2" />
     </condition>
   </conditions>
 
-  <!-- component section (optional for all Software Packs)-->
+  <!-- optional taxonomy section for defining new component Class and Group names -->
+  <taxonomy>
+    <description Cclass="ACME-Feature" doc="Docs/MySWCompTaxonomy.htm">ACME Middelware Feature.</description>
+  </taxonomy>
+
+<!-- component section (optional for all Software Packs)-->
   <components>
     <bundle Cbundle="Eval" Cclass="ACME-Feature" Cversion="1.0.3">
-      <description>Evaluation version of ACME Corp's SW component</description>
+      <description>Evaluation version of ACME SW component</description>
       <doc>https://www.acme-website.com/ACME-Feature/Eval</doc>
-      <component Cgroup="MyGroup" Cvariant="Release" Cversion="1.0.3"
-        condition="CMSIS Core with RTOS2" maxInstances="3">
+      <component Cgroup="MyGroup" Cvariant="Release" Cversion="1.0.3" condition="CMSIS Core with RTOS2">
         <description>Release version of MyVariant</description>
         <RTE_Components_h>
-          <!-- the following content goes into file 'RTE_Components.h' -->
-          #define RTE_MyVariant_Release               /* MyVariant Release Version */
+          <!-- the following content goes into file 'RTE_Components.h', alternatively Preinclude may be used -->
+          #define MyVariant_Release               /* MyVariant Release Version */
         </RTE_Components_h>
         <files>
           <file category="doc" name="Docs/MySWComp.htm" />
           <file category="header" name="MySWComp/header_mylib.h" />
           <file category="header" name="MySWComp/config/config_mylib.h" attr="config"
             version="1.0.0" />
-          <file category="library" condition="CM0" name="MySWComp/Lib/mylib_cm0.lib" />
+          <file category="library" condition="CM0-23" name="MySWComp/Lib/mylib_cm0.lib" />
           <file category="library" condition="CM3" name="MySWComp/Lib/mylib_cm3.lib" />
-          <file category="library" condition="CM4_CM7" name="MySWComp/Lib/mylib_cm4.lib" />
+          <file category="library" condition="CM4-85" name="MySWComp/Lib/mylib_cm4.lib" />
         </files>
       </component>
-      <component Cgroup="MyGroup" Cvariant="Debug" Cversion="1.0.3"
-        condition="CMSIS Core with RTOS2">
+      <component Cgroup="MyGroup" Cvariant="Debug" Cversion="1.0.3" condition="CMSIS Core with RTOS2">
         <description>Debug version of MyVariant</description>
         <RTE_Components_h>
-          <!-- the following content goes into file 'RTE_Components.h' -->
-          #define RTE_MyVariant_Debug               /* MyVariant Debug Version */
+          <!-- the following content goes into file 'RTE_Components.h', alternatively Preinclude may be used -->
+          #define MyVariant_Debug               /* MyVariant Debug Version */
         </RTE_Components_h>
         <files>
           <file category="doc" name="Docs/MySWComp.htm" />
           <file category="header" name="MySWComp/header_mylib.h" />
-          <file category="header" name="MySWComp/config/debug_config_mylib.h" attr="config"
-            version="1.0.0" />
-          <file category="library" condition="CM0" name="MySWComp/Lib/debug_mylib_cm0.lib" />
+          <file category="header" name="MySWComp/config/debug_config_mylib.h" attr="config" version="1.0.0" />
+          <file category="library" condition="CM0-23" name="MySWComp/Lib/debug_mylib_cm0.lib" />
           <file category="library" condition="CM3" name="MySWComp/Lib/debug_mylib_cm3.lib" />
-          <file category="library" condition="CM4_CM7" name="MySWComp/Lib/debug_mylib_cm4.lib" />
+          <file category="library" condition="CM4-85" name="MySWComp/Lib/debug_mylib_cm4.lib" />
         </files>
       </component>
     </bundle>
@@ -130,10 +138,5 @@
       </component>
     </bundle>
   </components>
-
-  <!-- optional taxonomy section for defining new component Class and Group names -->
-  <taxonomy>
-    <description Cclass="ACME-Feature" doc="Docs/MySWCompTaxonomy.htm">ACME Middelware Feature.</description>
-  </taxonomy>
 
 </package>
