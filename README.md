@@ -41,7 +41,7 @@ For changing the XML it is recommended to use VS Code. After modifications to th
 The pack can be created locally in the directory `output` using a bash console:
 
 ```txt
-$ ./gen_pack.sh -V
+$ ./gen_pack.sh -v
 ```
 
 ### Pack Creation on GitHub
