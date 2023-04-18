@@ -37,7 +37,7 @@ After modifications to the `*.pdsc` file run packchk and include all packs that 
 Using **Command Prompt**:
 
 ```txt
-> packchk ACME.ACME_Middleware.pdsc -i %LocalAppData%/Arm/Packs/ARM/CMSIS/5.9.0/ARM.CMSIS.pdsc
+> packchk ACME.ACME_Middleware.pdsc -i %CMSIS_PACK_ROOT%/Arm/Packs/ARM/CMSIS/5.9.0/ARM.CMSIS.pdsc
 ```
 
 Using  **Git Bash** console:
