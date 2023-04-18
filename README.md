@@ -19,8 +19,6 @@ Content                        | Description
 - [CMSIS-Toolbox v1.5.0](https://github.com/Open-CMSIS-Pack/cmsis-toolbox/releases) or higher (update files in C:\Keil_v5\ARM\ctools)
 - [VS Code](https://code.visualstudio.com/) with [XML Language Support by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml)
 
-> NOTE: With CMSIS-Toolbox v1.6.0 the XML schema check is available with packchk.
-
 ### Local Pack Development
 
 1. Clone this repository
@@ -33,6 +31,12 @@ Content                        | Description
    ```
 
 For changing the XML it is recommended to use VS Code. After modifications to the `*.pdsc` file run:
+
+```txt
+> packchk ACME.ACME_Middleware.pdsc -i %LocalAppData%/Arm/Packs/ARM/CMSIS/5.9.0/ARM.CMSIS.pdsc
+```
+
+With CMSIS-Toolbox v1.7.0 the XML schema check is available with packchk, the command may be then extended to:
 
 ```txt
 > packchk ACME.ACME_Middleware.pdsc -i %LocalAppData%/Arm/Packs/ARM/CMSIS/5.9.0/ARM.CMSIS.pdsc -s /Keil_v5/UV4/PACK.xsd
