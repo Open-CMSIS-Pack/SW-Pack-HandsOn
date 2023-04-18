@@ -19,6 +19,8 @@ Content                        | Description
 - [CMSIS-Toolbox v1.6.0](https://github.com/Open-CMSIS-Pack/cmsis-toolbox/releases) or higher (update files in C:\Keil_v5\ARM\ctools)
 - [VS Code](https://code.visualstudio.com/) with [XML Language Support by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml)
 
+> NOTE: With CMSIS-Toolbox v1.5.0 the XML schema check needs to be done manually
+
 ### Local Pack Development
 
 1. Clone this repository
@@ -36,7 +38,18 @@ For changing the XML it is recommended to use VS Code. After modifications to th
 > packchk ACME.ACME_Middleware.pdsc -i %LocalAppData%/Arm/Packs/ARM/CMSIS/5.9.0/ARM.CMSIS.pdsc -s /Keil_v5/UV4/PACK.xsd
 ```
 
-### Pack Creation
+The pack can be created locally in the directory `output` using a bash console:
 
-Once changes are committed the GitHub Action creates the pack.
+```txt
+$ ./gen_pack.sh -V
+```
 
+### Pack Creation on GitHub
+
+Once changes are committed the [GitHub Action](https://github.com/Open-CMSIS-Pack/SW-Pack-HandsOn/actions) creates the pack.
+
+### Publish Pack
+
+The pack can be hosted on the [\<url\>](https://github.com/Open-CMSIS-Pack/SW-Pack-HandsOn/blob/main/ACME.ACME_Middleware.pdsc#L8) specified in the `*.pdsc` file.
+
+Refer to [Publish a Pack](https://open-cmsis-pack.github.io/Open-CMSIS-Pack-Spec/main/html/createPackPublish.html) in the Open-CMSIS-Pack specification for further details.
