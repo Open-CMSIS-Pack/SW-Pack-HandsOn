@@ -32,7 +32,7 @@ The CMSIS-Pack technology is available in multiple toolchains. Below is a brief 
 
 - **Reduces support efforts:** as it is easier for users to integrate software in projects. Product Lifecycle Management simplifies updates and notifies users about outdated configuration files.
 
-To learn more review the session about [Generating CMSIS-Packs for Middleware](https://linaro.atlassian.net/wiki/spaces/CMSIS/pages/28897214510/Open-CMSIS-Pack+Technical+Meeting+2023-04-18#Arm-Presentation%3A-Generating-CMSIS-Packs-for-Middleware).
+>To learn more review the session about [Generating CMSIS-Packs for Middleware](https://linaro.atlassian.net/wiki/spaces/CMSIS/pages/28897214510/Open-CMSIS-Pack+Technical+Meeting+2023-04-18#Arm-Presentation%3A-Generating-CMSIS-Packs-for-Middleware).
 
 ## Pack Development
 
@@ -58,6 +58,9 @@ The following section explains how to create a pack.
 - **Validate the software pack** using the `packchk` tool.
 - **Create the software pack** using the `gen_pack` library.
 
+>An example middleware is explained in this [meeting recording](
+https://linaro.atlassian.net/wiki/spaces/CMSIS/pages/28897214510/Open-CMSIS-Pack+Technical+Meeting+2023-04-18#Meeting-Recording) starting at 15:05.
+
 ### Local Pack Development
 
 1. Clone this repository (as it serves as a getting started example)
@@ -68,6 +71,8 @@ The following section explains how to create a pack.
    cpackget add ACME.ACME_Middleware.pdsc   // pack now appears in toolchains, i.e. in MDK
    csolution list packs
    ```
+
+3. The content of the pack can now be seen in the Manage Component dialog of uVision.
 
 For changing the [PDSC file](ACME.ACME_Middleware.pdsc) it is recommended to use VS Code with XML extension, but any editor would work.
 
@@ -95,6 +100,29 @@ The pack can be created locally in the directory `output` using **Git Bash**:
 
 ```txt
 ./gen_pack.sh -v
+```
+
+### Verify Pack in Tools
+
+To verify the tools such as the [VS Code - Keil Studio Desktop](https://marketplace.visualstudio.com/items?itemName=Arm.keil-studio-pack) extension, install the pack with: 
+
+```txt
+cpackget add ./output/ACME.ACME_Middleware.1.0.0.pack
+```
+
+>**Notes:**
+> - [VS Code - Keil Studio Desktop](https://marketplace.visualstudio.com/items?itemName=Arm.keil-studio-pack) does not yet support pack installation from local repositories.
+> - To continue local pack development, change add a new \<release\> version. During development [semantic version](https://semver.org/) labels to indicate a pre-release may be used as shown below:
+
+```xml
+  <releases>
+    <release version="1.0.1-rc0">
+      Further development
+    </release>
+    <release version="1.0.0" date="2023-04-17">
+      Initial version
+    </release>
+  </releases>
 ```
 
 ### Pack Creation on GitHub
