@@ -9,7 +9,7 @@ The software component itself is available in two flavors: *debug* (that could h
 
 Content                        | Description
 :------------------------------|----------------------------------------
-[`gen_pack.sh`](./gen_pack.sh) | Script that builds the pack; refer to [usage information](https://github.com/Open-CMSIS-Pack/gen-pack#get-started) for configuration details.
+[`gen_pack.sh`](./gen_pack.sh) | Script that builds the pack; refer to [prerequisites](https://github.com/Open-CMSIS-Pack/gen-pack#prerequisites) and [usage information](https://github.com/Open-CMSIS-Pack/gen-pack#get-started) for details.
 [`.github/workflows/pack.yaml`](./.github/workflows/pack.yaml)  | GitHub workflow that generates the pack on every commit.
 
 ## Benefits of Software Pack Delivery
