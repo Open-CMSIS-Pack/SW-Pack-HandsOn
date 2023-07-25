@@ -111,8 +111,7 @@ cpackget add ./output/ACME.ACME_Middleware.1.0.0.pack
 ```
 
 >**Notes:**
-> - [VS Code - Keil Studio Desktop](https://marketplace.visualstudio.com/items?itemName=Arm.keil-studio-pack) does not yet support pack installation from local repositories.
-> - To continue local pack development, change add a new \<release\> version. During development [semantic version](https://semver.org/) labels to indicate a pre-release may be used as shown below:
+> - To continue local pack development, add a new \<release\> version. During development, [semantic version](https://semver.org/) labels to indicate a pre-release may be used as shown below:
 
 ```xml
   <releases>
