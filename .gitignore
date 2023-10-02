@@ -52,3 +52,7 @@ dkms.conf
 
 # Output files
 output
+Documentation
+
+# macOS files
+**.DS_Store

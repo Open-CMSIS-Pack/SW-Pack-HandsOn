@@ -28,16 +28,17 @@ DEFAULT_ARGS=()
 # An empty list defaults to all folders next to this script.
 # Default: empty (all folders)
 #
-# PACK_DIRS="
-#   <list directories here>
-# "
+PACK_DIRS="
+  Documentation
+  MySWComp
+"
 
 # Specify file names to be added to pack base directory
 # Default: empty
 #
- PACK_BASE_FILES="
-   LICENSE
-   README.nd
+PACK_BASE_FILES="
+  LICENSE
+  README.md
 "
 
 # Specify file names to be deleted from pack build directory
@@ -85,6 +86,7 @@ PACK_CHANGELOG_MODE="tag"
 function preprocess() {
   # add custom steps here to be executed
   # before populating the pack build folder
+  ./DoxyGen/gen_doc.sh
   return 0
 }
 

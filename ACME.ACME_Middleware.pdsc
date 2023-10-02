@@ -11,6 +11,10 @@
   <license>LICENSE</license>
 
   <releases>
+    <release version="1.1.0" date="2023-10-02">
+      Added Doxygen-based documentation.
+      Added automated documentation builds with GH Actions.
+    </release>
     <release version="1.0.0" date="2023-04-17">
       Initial version
     </release>
@@ -61,7 +65,7 @@
 
   <!-- optional taxonomy section for defining new component Class and Group names -->
   <taxonomy>
-    <description Cclass="ACME-Feature" doc="Docs/MySWCompTaxonomy.htm">ACME Middelware Feature.</description>
+    <description Cclass="ACME-Feature" doc="Documentation/html/md_src_taxonomy.html">ACME Middleware Feature.</description>
   </taxonomy>
 
 <!-- component section (optional for all Software Packs)-->
@@ -76,7 +80,7 @@
           #define MyVariant_Release               /* MyVariant Release Version */
         </RTE_Components_h>
         <files>
-          <file category="doc" name="Docs/MySWComp.htm" />
+          <file category="doc" name="Documentation/html/index.html" />
           <file category="header" name="MySWComp/header_mylib.h" />
           <file category="header" name="MySWComp/config/config_mylib.h" attr="config"
             version="1.0.0" />
@@ -92,7 +96,7 @@
           #define MyVariant_Debug               /* MyVariant Debug Version */
         </RTE_Components_h>
         <files>
-          <file category="doc" name="Docs/MySWComp.htm" />
+          <file category="doc" name="Documentation/html/index.html" />
           <file category="header" name="MySWComp/header_mylib.h" />
           <file category="header" name="MySWComp/config/debug_config_mylib.h" attr="config" version="1.0.0" />
           <file category="library" condition="CM0-23" name="MySWComp/Lib/debug_mylib_cm0.lib" />
@@ -103,7 +107,7 @@
     </bundle>
     <bundle Cbundle="Commercial" Cclass="ACME-Feature" Cversion="1.0.2">
       <description>Commercial version of ACME Corp's SW component</description>
-      <doc>Docs/MySWComp.htm</doc>
+      <doc>Documentation/html/index.html</doc>
       <component Cgroup="MyGroup" Cvariant="Release" Cversion="1.0.2"
         condition="CMSIS Core with RTOS2" maxInstances="3">
         <description>Release version of MyVariant</description>
@@ -112,7 +116,7 @@
         #define RTE_MyVariant_Release               /* MyVariant Release Version */
       </RTE_Components_h>
         <files>
-          <file category="doc" name="Docs/MySWComp.htm" />
+          <file category="doc" name="Documentation/html/index.html" />
           <file category="header" name="MySWComp/header_mylib.h" />
           <file category="header" name="MySWComp/config/config_mylib.h" attr="config"
             version="1.0.0" />
@@ -128,7 +132,7 @@
         #define RTE_MyVariant_Debug               /* MyVariant Debug Version */
       </RTE_Components_h>
         <files>
-          <file category="doc" name="Docs/MySWComp.htm" />
+          <file category="doc" name="Documentation/html/index.html" />
           <file category="header" name="MySWComp/header_mylib.h" />
           <file category="header" name="MySWComp/config/debug_config_mylib.h" attr="config"
             version="1.0.0" />
