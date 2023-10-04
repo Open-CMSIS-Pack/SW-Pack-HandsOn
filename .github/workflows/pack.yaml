@@ -34,7 +34,7 @@ jobs:
           packchk-version: 1.4.1
           gen-doc-script: ./DoxyGen/gen_doc.sh
           check-links-script: ./DoxyGen/check_links.sh
-          doc-path: ./Documentation
+          doc-path: ./Documentation/html
           gen-pack-script: ./gen_pack.sh --no-preprocess
           gen-pack-output: ./output
           gh-pages-branch: gh-pages

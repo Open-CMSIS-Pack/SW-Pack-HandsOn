@@ -16,7 +16,7 @@ set -o pipefail
 REQUIRED_GEN_PACK_LIB="0.8.3"
 
 DIRNAME=$(dirname $(readlink -f $0))
-GENDIR=../Documentation
+GENDIR=${DIRNAME}/../Documentation/html
 REQ_DXY_VERSION="1.9.6"
 REQ_MSCGEN_VERSION="0.20"
 
@@ -84,15 +84,15 @@ sed -e "s/{projectNumber}/${projectNumber}/" myswcomp.dxy.in > myswcomp.dxy
 echo "\"${UTILITY_DOXYGEN}\" myswcomp.dxy"
 "${UTILITY_DOXYGEN}" myswcomp.dxy
 
-mkdir -p "${DIRNAME}/../Documentation/search/"
-cp -f "${DIRNAME}/Doxygen_Templates/search.css" "${DIRNAME}/../Documentation/html/search/"
+mkdir -p "${GENDIR}/search"
+cp -f "${DIRNAME}/Doxygen_Templates/search.css" "${GENDIR}/search"
 
 sed -e "s/{datetime}/${datetime}/" "${DIRNAME}/Doxygen_Templates/footer.js.in" \
   | sed -e "s/{year}/${year}/" \
   | sed -e "s/{projectName}/${projectName}/" \
   | sed -e "s/{projectNumber}/${projectNumber}/" \
   | sed -e "s/{projectNumberFull}/${projectNumberFull}/" \
-  > "${DIRNAME}/../Documentation/html/footer.js"
+  > "${GENDIR}/footer.js"
 
 popd > /dev/null
 
