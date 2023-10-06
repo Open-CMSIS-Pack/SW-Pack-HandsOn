@@ -10,7 +10,10 @@ The software component itself is available in two flavors: *debug* (that could h
 Content                        | Description
 :------------------------------|----------------------------------------
 [`gen_pack.sh`](./gen_pack.sh) | Script that builds the pack; refer to [prerequisites](https://github.com/Open-CMSIS-Pack/gen-pack#prerequisites) and [usage information](https://github.com/Open-CMSIS-Pack/gen-pack#get-started) for details.
+|[`gen_doc.sh`](./DoxyGen/gen_doc.sh) | Script that builds the documentation (using Dxoygen). This is an example - other dcoumentation generation mechnisms can be used as well.
+|[`check_links.sh`](./DoxyGen/check_links.sh) | Script that checks all links in the documentation for consistency and availability.
 [`.github/workflows/pack.yaml`](./.github/workflows/pack.yaml)  | GitHub workflow that generates the pack on every commit.
+[`.github/workflows/gh-pages.yaml`](./.github/workflows/gh-pages.yaml)  | GitHub workflow that generates the documentation on the `gh-pages` branch.
 
 ## Benefits of Software Pack Delivery
 
@@ -43,6 +46,7 @@ The following section explains how to create a pack.
 - MDK v5.38 with default installation path (C:\Keil_v5\)
 - [CMSIS-Toolbox v1.5.0](https://github.com/Open-CMSIS-Pack/cmsis-toolbox/releases) or higher (update files in C:\Keil_v5\ARM\ctools)
 - [VS Code](https://code.visualstudio.com/) with [XML Language Support by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml)
+- [Doxygen v1.9.2](https://www.doxygen.nl/download.html)
 
 ### Steps to Create a Software Pack
 
@@ -52,6 +56,7 @@ The following section explains how to create a pack.
   - Are there existing interfaces in CMSIS? Take a look to CMSIS-Drivers and consider to provide feedback.
   - If not, consider to create an API to separate device from functional parts.
   - You may provide device-specific interfaces as part of your pack but consider a separate pack as the interface could be overwritten or extended with other packs.
+  - Create appropriate documentation for the software components.
 - **Organize and create the file list** that will be delivered as Pack
   - Each component can have source code, header and library files, documentation; separate the content logically.
 - **Create the [PDSC file](ACME.ACME_Middleware.pdsc)** using your favorite editor (we recommend VS Code with XML extension).
@@ -126,7 +131,7 @@ cpackget add ./output/ACME.ACME_Middleware.1.0.0.pack
 
 ### Pack Creation on GitHub
 
-Once changes are committed the [GitHub Action](https://github.com/Open-CMSIS-Pack/SW-Pack-HandsOn/actions) creates the pack.
+Once changes are committed, [GitHub Actions](https://github.com/Open-CMSIS-Pack/SW-Pack-HandsOn/actions) create the pack and the documentation.
 
 ### Publish Pack
 
