@@ -52,7 +52,8 @@ dkms.conf
 
 # Output files
 output
-Documentation
+Documentation/html
+Documentation/search
 
 # macOS files
 **.DS_Store

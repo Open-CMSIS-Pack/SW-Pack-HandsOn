@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<package schemaVersion="1.7.7" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
-  xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.7/schema/PACK.xsd">
+<package schemaVersion="1.7.37" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+  xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.37/schema/PACK.xsd">
   <vendor>ACME</vendor>
   <name>ACME_Middleware</name>
-  <description>ACME middleware components</description>
+  <description overview="Documentation/README.md">ACME middleware components</description>
   <url>https://www.acme-website.com/pack/</url>
   <repository type="git">https://github.com/Open-CMSIS-Pack/SW-Pack-HandsOn.git</repository>
   <supportContact>support@acme-corp.com</supportContact>
   <license>LICENSE</license>
+  <licenseSets>
+    <licenseSet id="all" default="true" gating="true">
+      <license name="LICENSE" title="Apache 2.0 License"/>
+    </licenseSet>
+  </licenseSets>
 
   <releases>
+    <release version="1.1.1" date="2024-06-07">
+      Updated gen_pack.sh script.
+      Added Documentation/README.md to display the SW pack overview page.
+    </release>
     <release version="1.1.0" date="2023-10-02">
       Added Doxygen-based documentation.
       Added automated documentation builds with GH Actions.
