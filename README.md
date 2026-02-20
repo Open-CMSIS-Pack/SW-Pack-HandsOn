@@ -1,3 +1,5 @@
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-green?label=Licence)](https://github.com/Open-CMSIS-Pack/GSP-Pack-HandsOn/blob/main/LICENSE)
+[![Pack build](https://img.shields.io/github/actions/workflow/status/Open-CMSIS-Pack/GSP-Pack-HandsOn/pack.yaml?logo=arm&logoColor=0091bd&label=Build%20pack)](https://github.com/Open-CMSIS-Pack/GSP-Pack-HandsOn/tree/main/.github/workflows/pack.yaml)
 # Create a Generic Software Pack - Hands-On Example
 
 This repository explains the steps to create a generic software pack (GSP) using the Open-CMSIS-Pack technology. 
